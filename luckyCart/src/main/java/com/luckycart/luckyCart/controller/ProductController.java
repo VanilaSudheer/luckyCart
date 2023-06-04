@@ -24,6 +24,13 @@ public class ProductController {
         return new ResponseEntity<>(productResponse,HttpStatus.OK);
 
     }
+    //postman:http://localhost:8080//product/reduceQuantity/1?quantity=3
+    @PutMapping("/reduceQuantity/{id}")
+    public ResponseEntity<Void> reduceQuantity(@PathVariable("id") long productId, @RequestParam long quantity){
+        productService.reduceQuantity(productId,quantity);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 
 }
